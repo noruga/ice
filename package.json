@@ -7,10 +7,6 @@
     "socket.io": "^1.7.3",
     "path": "^0.12.7"
   },
-  /*
-  "devDependencies": {
-    "gulp": "^3.9.1"
-  },*/
   "scripts": {
     "start": "NODE_ENV=production node server1.js"
   },
