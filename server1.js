@@ -56,7 +56,7 @@ var path    = require('path');
 
 var port = process.env.PORT || 3512
 
-
+var env = process.env.NODE_ENV || 'production';
 
 /**
 var lobbyManager = new (require('./js/LobbyManager.js'))(io);
