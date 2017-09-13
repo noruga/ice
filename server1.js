@@ -47,7 +47,7 @@ app.get("/", function(req, res){
 // This is where Socket.io is set up. Socket takes in the HTTP server created above, and basically adds it's own
 // layer on top of it that is nice and easy to use. 'io' is the Socket.io server object. You could call it
 // 'socketIOServer' or something similar if you wish, but all of the documentation for Socket.io uses just 'io'.
-var io = require('socket.io')(server);
+//var io = require('socket.io')(server);
 
 var path    = require('path');
 
@@ -79,6 +79,8 @@ var server = app.listen(port, err => {
     console.info('Server running on  ' + port + '  ' + env);
 });
 
+
+var io = require('socket.io').listen(server);
 
 // Used to manage players in the game. See the slightly more advanced stuff
 // after you understand everything else and are done with the basics.
