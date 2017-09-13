@@ -32,6 +32,8 @@
 import PIXI from 'pixi';
 import P2 from 'p2';*/
 
+var path = require('path');
+
 // Gathering dependencies. The require(...) bit imports the stuff that was installed through npm.
 var express = require('express');
 // Create an Express app. Socket.io just sits on top of Express, but Express itself isn't
@@ -39,9 +41,13 @@ var express = require('express');
 var app = express();
 
 
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/client/index.html'));
+});
+/*
 app.get("/", function(req, res){
     res.render("index");
-})
+})*/
 // Make a new HTTP server from Express. This doesn't get used itself either, unless you want to do stuff with it.
 //var server = require('http').Server(app);
 // This is where Socket.io is set up. Socket takes in the HTTP server created above, and basically adds it's own
