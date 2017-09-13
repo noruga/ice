@@ -76,7 +76,7 @@ var server = app.listen(port, err => {
     if (err) {
         return console.error(err);
     }
-    console.info(Server running on port: {port} [${env}]);
+    //console.info(Server running on port: {port} [${env}]);
 });
 
 
