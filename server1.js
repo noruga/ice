@@ -43,7 +43,7 @@ app.get("/", function(req, res){
     res.render("index");
 })
 // Make a new HTTP server from Express. This doesn't get used itself either, unless you want to do stuff with it.
-var server = require('http').Server(app);
+//var server = require('http').Server(app);
 // This is where Socket.io is set up. Socket takes in the HTTP server created above, and basically adds it's own
 // layer on top of it that is nice and easy to use. 'io' is the Socket.io server object. You could call it
 // 'socketIOServer' or something similar if you wish, but all of the documentation for Socket.io uses just 'io'.
@@ -72,7 +72,12 @@ var gameManager = new (require('./js/GameManager.js'))(io, roomManager);*/
 
 // Your IP address is how other devices on a network find this one. The 127.0.0.1 is known as a loop-back address, or
 // otherwise known as 'localhost', which is basically a way for a device to send messages to itself.
-server.listen(port, "127.0.0.1");
+var server = app.listen(port, err => {
+    if (err) {
+        return console.error(err);
+    }
+    console.info(Server running on port: {port} [${env}]);
+});
 
 
 // Used to manage players in the game. See the slightly more advanced stuff
