@@ -40,6 +40,13 @@ var express = require('express');
 // used much, unless you want to serve files with it, but that is not recommended.
 var app = express();
 
+/*
+app.use(express.static('public'));
+
+var favicon = require('serve-favicon');
+
+app.use(favicon(__dirname + 'public/favicon.ico'));*/
+
 
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/client/index.html'));
@@ -305,6 +312,16 @@ io.on('connection', function (socket) {
 
 
     })
+    socket.on('goalScored1', function(){
+        io.in('game-room').emit('goalScored1');
+        console.log("goal scored 1 event recieved");
+    })
+
+    socket.on('goalScored2', function(){
+        io.in('game-room').emit('goalScored2');
+        console.log("goal scored 2 event recieved");
+    })
+/*
 /*
     socket.on('puckPos', function(data){
         io.in('game-room').emit('puckPos', {x: data.x, y: data.y});
